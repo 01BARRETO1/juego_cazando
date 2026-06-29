@@ -14,6 +14,7 @@ let comidaX=0;
 let comidaY=0;
 //Variables puntos y tiempo
 let puntos=0;
+let tiempo=10;
 
 function graficarGato(){
     graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"#ce4a07");
@@ -35,6 +36,7 @@ function iniciarJuego(){
     comidaX=500-ANCHO_COMIDA;
     ctx.fillRect(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA);
     graficarComida();
+    setInterval(restarTiempo,1000);
 }
 
 function graficarRectangulo(x,y,ancho,alto,color){
@@ -94,4 +96,10 @@ function detectarColision(){
         puntos=puntos+1;
         mostrarEnSpam("puntos",puntos);
     }
+}
+
+function restarTiempo(){
+    tiempo=tiempo-1;
+    mostrarEnSpam("tiempo",tiempo);
+    
 }
