@@ -12,11 +12,15 @@ let gatoX = (canvas.width - ANCHO_GATO) / 2;
 let gatoY = (canvas.height - ALTO_GATO) / 2;
 let comidaX=0;
 let comidaY=0;
+
 //Variables puntos y tiempo
 let puntos=0;
 let tiempo=10;
+//Variable detener intervalo
+let interval= setInterval(restarTiempo,1000);
 
 function graficarGato(){
+    
     graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"#ce4a07");
     //ctx.fillStyle="#ce4a07";
     //ctx.fillRect(gatoX-ANCHO_GATO/2,gatoY-ALTO_GATO,ANCHO_GATO,ALTO_GATO);
@@ -31,12 +35,14 @@ function graficarComida(){
 }
 
 function iniciarJuego(){
+    
     graficarGato();
     ctx.fillStyle="#0fa904";
     comidaX=500-ANCHO_COMIDA;
     ctx.fillRect(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA);
     graficarComida();
-    setInterval(restarTiempo,1000);
+    
+    interval;
 }
 
 function graficarRectangulo(x,y,ancho,alto,color){
@@ -95,11 +101,43 @@ function detectarColision(){
         //SISTEMA DE PUNTAJE
         puntos=puntos+1;
         mostrarEnSpam("puntos",puntos);
+        //Si el puntaje llega a 6 → mostrar alert de ganador y detener el setInterval.
+        if(puntos==6){
+            clearInterval(interval);
+            alert("Ganador!");
+        
+        }
+        //Si el tiempo llega a 0 → mostrar alert de Game Over y detener el setInterval.
     }
 }
 
 function restarTiempo(){
     tiempo=tiempo-1;
     mostrarEnSpam("tiempo",tiempo);
+    //Si el tiempo llega a 0 → mostrar alert de Game Over y detener el setInterval.
+    if(tiempo==0){
+        clearInterval(interval);
+        alert("GAME OVER");
+        
+    }
     
+}
+
+function reset(){
+    clearInterval(interval);
+    limpiarCanva();
+    gatoX = (canvas.width - ANCHO_GATO) / 2;
+    gatoY = (canvas.height - ALTO_GATO) / 2;
+    graficarGato();
+    comidaX=500-ANCHO_COMIDA;
+    comidaY=0
+    
+    ctx.fillRect(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA);
+    graficarComida();
+    tiempo=10;
+    mostrarEnSpam("tiempo",tiempo);
+    puntos=0;
+    mostrarEnSpam("puntos",puntos);
+    interval= setInterval(restarTiempo,1000);
+
 }
