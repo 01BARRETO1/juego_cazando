@@ -12,11 +12,14 @@ let gatoX = (canvas.width - ANCHO_GATO) / 2;
 let gatoY = (canvas.height - ALTO_GATO) / 2;
 let comidaX=0;
 let comidaY=0;
+//Variables puntos y tiempo
+let puntos=0;
 
 function graficarGato(){
     graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"#ce4a07");
     //ctx.fillStyle="#ce4a07";
     //ctx.fillRect(gatoX-ANCHO_GATO/2,gatoY-ALTO_GATO,ANCHO_GATO,ALTO_GATO);
+    detectarColision();
 }
 
 function graficarComida(){
@@ -83,6 +86,12 @@ function detectarColision(){
     if(comidaX < gatoX + ANCHO_GATO && comidaX + ANCHO_COMIDA > gatoX 
         && comidaY < gatoY + ALTO_GATO && comidaY + ALTO_COMIDA > gatoY
     ){
-        alert("COMIDA ATRAPADA!");
+        //ALEATORIO COMIDA
+        comidaX=generarAleatorio(0,500-ANCHO_COMIDA);
+        comidaY=generarAleatorio(0,500-ALTO_COMIDA);
+        //alert("COMIDA ATRAPADA!");
+        //SISTEMA DE PUNTAJE
+        puntos=puntos+1;
+        mostrarEnSpam("puntos",puntos);
     }
 }
