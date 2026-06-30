@@ -55,12 +55,17 @@ body::before{
 }
 
 h1{
-    font-size:3rem;
-    font-weight:700;
-    color:#fff;
-    margin-bottom:10px;
-    letter-spacing:2px;
-    text-shadow:0 0 15px rgba(59,130,246,.5);
+
+    font-size:3.2rem;
+
+    color:#FFD54F;
+
+    text-shadow:
+
+    3px 3px 0 #8B4513,
+
+    6px 6px 15px rgba(0,0,0,.3);
+
 }
 
 p{
@@ -70,7 +75,7 @@ p{
 
 canvas{
     background:#fdf7e3;
-    border:8px solid #8b5a2b;
+    border:10px solid #7b4a12;
     border-radius:25px;
     box-shadow:0 10px 25px rgba(0,0,0,.3);
 
