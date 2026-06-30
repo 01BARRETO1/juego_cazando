@@ -178,14 +178,17 @@ button{
     color:#5d4037;
     font-weight:bold;
     border:3px solid #f57f17;
+    text-align: center;  /* centra el texto dentro del botón */
     /* 👇 Espaciado */
     margin: 10px;        /* separa cada botón de los demás */
     padding: 15px 30px;  /* agranda el botón internamente */
     font-size: 1.2rem;   /* texto más grande */
-
+    
     width: clamp(120px, 20vw, 200px);
     height: clamp(40px, 8vw, 60px);
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(2rem, 2vw, 1.6rem);
+    line-height: 0.5;    /* controla la altura de línea */
+    
     
 }
 
