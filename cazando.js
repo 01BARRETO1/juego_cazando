@@ -1,12 +1,26 @@
 let canvas= document.getElementById("areaJuego");
 let ctx=canvas.getContext("2d");
 
+//
+// Imágenes
+const gatoDerecha = new Image();
+gatoDerecha.src = "img/gato_derecha.png";
+
+const gatoIzquierda = new Image();
+gatoIzquierda.src = "img/gato_izquierda.png";
+
+const raton = new Image();
+raton.src = "img/raton.png";
+
+let gatoActual = gatoDerecha;
+//
+
 
 //Constantes:
-const ALTO_GATO=30;
-const ANCHO_GATO=80;
-const ALTO_COMIDA=20;
-const ANCHO_COMIDA=20;
+const ALTO_GATO=80;
+const ANCHO_GATO=190;
+const ALTO_COMIDA=60;
+const ANCHO_COMIDA=45;
 //Variables iniciadas en cero
 let gatoX = (canvas.width - ANCHO_GATO) / 2;
 let gatoY = (canvas.height - ALTO_GATO) / 2;
@@ -19,20 +33,49 @@ let tiempo=10;
 //Variable detener intervalo
 let interval= setInterval(restarTiempo,1000);
 
+//
 function graficarGato(){
+    ctx.drawImage(
+        gatoActual,
+        gatoX,
+        gatoY,
+        ANCHO_GATO,
+        ALTO_GATO
+    );
+
+    detectarColision();
+}
+//
+
+/* function graficarGato(){
     
     graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"#ce4a07");
     //ctx.fillStyle="#ce4a07";
     //ctx.fillRect(gatoX-ANCHO_GATO/2,gatoY-ALTO_GATO,ANCHO_GATO,ALTO_GATO);
     detectarColision();
-}
+} */
 
+//
 function graficarComida(){
+
+    ctx.drawImage(
+        raton,
+        comidaX,
+        comidaY,
+        ANCHO_COMIDA,
+        ALTO_COMIDA
+    );
+
+    detectarColision();
+}
+//
+
+/* function graficarComida(){
     graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"#0fa904");
     //ctx.fillStyle="#0fa904";
     //ctx.fillRect(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA);
     detectarColision();
-}
+} */
 
 function iniciarJuego(){
     
@@ -54,21 +97,47 @@ function limpiarCanva(){
     ctx.clearRect(0,0,canvas.width,canvas.height)
 }
 
+//
 function moverIzquierda(){
+
+    gatoActual = gatoIzquierda;
+
+    gatoX -= 10;
+
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+//
+
+/* function moverIzquierda(){
     gatoX=gatoX-10;
     limpiarCanva();
     graficarGato();
     graficarComida();
     detectarColision()
-}
+} */
 
-function moverDerecha(){
+    //
+    function moverDerecha(){
+
+    gatoActual = gatoDerecha;
+
+    gatoX += 10;
+
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+    //
+
+/* function moverDerecha(){
     gatoX=gatoX+10;
     limpiarCanva();
     graficarGato();
     graficarComida();
     detectarColision()
-}
+} */
 
 function moverArriba(){
     gatoY=gatoY-10;
@@ -118,7 +187,7 @@ function restarTiempo(){
     if(tiempo==0){
         clearInterval(interval);
         alert("GAME OVER");
-        
+        reset();
     }
     
 }
