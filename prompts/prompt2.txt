@@ -1,0 +1,1 @@
+Hola por favor, actúa como diseñador front end y ayúdame a ingresar un fondo background, con la imagen fondo_pradera, sin dañar el diseño del css del fondo , que la imagen tenga opacidad y se pueda ver tanto la imagen como el background del css
