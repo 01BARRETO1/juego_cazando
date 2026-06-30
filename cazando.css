@@ -231,7 +231,7 @@ button:last-child{
 @media screen and (max-width: 600px) {
 
     body {
-        padding: 16px; /* menos padding en móvil */
+        padding: 17px; /* menos padding en móvil */
     }
 
     
