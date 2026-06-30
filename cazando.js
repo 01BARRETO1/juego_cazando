@@ -163,6 +163,9 @@ function detectarColision(){
     if(comidaX < gatoX + ANCHO_GATO && comidaX + ANCHO_COMIDA > gatoX 
         && comidaY < gatoY + ALTO_GATO && comidaY + ALTO_COMIDA > gatoY
     ){
+        //tiempo 
+        tiempo=10
+        mostrarEnSpam("tiempo",tiempo);
         //ALEATORIO COMIDA
         comidaX=generarAleatorio(0,500-ANCHO_COMIDA);
         comidaY=generarAleatorio(0,500-ALTO_COMIDA);
