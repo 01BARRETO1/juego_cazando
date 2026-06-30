@@ -231,7 +231,7 @@ button:last-child{
 @media screen and (max-width: 600px) {
 
     body {
-        padding: 15px; /* menos padding en móvil */
+        padding: 16px; /* menos padding en móvil */
     }
 
     
@@ -322,7 +322,7 @@ button:last-child{
         
         width: clamp(60px, 40vw, 80px);
         height: clamp(60px, 20vw, 80px);
-        font-size: 1.4rem;
+        font-size: 16px;
         border-radius: 12px; /* menos redondeado en móvil */
         margin-top: 15px;
         
@@ -343,7 +343,7 @@ button:last-child{
     #mensaje {
         margin-top: 55px;   /* separación respecto a las flechas */
         text-align: center; /* centrado */
-        font-size: 15px;  /* tamaño cómodo en móvil */
+        font-size: 16px;  /* tamaño cómodo en móvil */
         color: #b0e4c3;
     }
 
