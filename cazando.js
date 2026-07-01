@@ -176,7 +176,8 @@ function detectarColision(){
         //Si el puntaje llega a 6 → mostrar alert de ganador y detener el setInterval.
         if(puntos==6){
             clearInterval(interval);
-            alert("Ganador!");
+            alert("Winner!");
+            reset();
         
         }
         //Si el tiempo llega a 0 → mostrar alert de Game Over y detener el setInterval.
